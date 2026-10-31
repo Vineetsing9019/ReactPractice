@@ -10,7 +10,8 @@ param([switch]$DryRun)
 
 $ErrorActionPreference = 'Stop'
 $Repo   = 'D:\ReactPractice'
-$Src    = 'C:\Users\Vineet\OneDrive\Desktop\React'
+# Vineet renamed the folder to my_React on 31 Oct; use whichever exists.
+$Src    = @('C:\Users\Vineet\OneDrive\Desktop\my_React', 'C:\Users\Vineet\OneDrive\Desktop\React') | Where-Object { Test-Path $_ } | Select-Object -First 1
 $Log    = Join-Path $Repo 'tools\daily-push.log'
 $Readme = Join-Path $Repo 'README.md'
 $SkipRe = '\\(node_modules|dist|dist-ssr|build|coverage|\.git|\.vite|\.next|\.expo)\\|\\\.env[^\\]*$|\.log$|\.local$'
