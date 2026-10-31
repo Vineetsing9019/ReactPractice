@@ -14,3 +14,4 @@ Each folder is a full project: open it, run `npm install` then `npm run dev`.
 | 2026-10-30 | [main.jsx](first-react-app/src/main.jsx) | Learning React in first-react-app |
 | 2026-10-30 | [App.jsx](first-react-app/src/App.jsx) | Learning React in first-react-app |
 | 2026-10-31 | [Demo.jsx](first-react-app/src/Demo.jsx) | Learning React in first-react-app |
+| 2026-10-31 | [App.jsx](first-react-app/src/App.jsx) | Updated in first-react-app |
