@@ -22,3 +22,4 @@ Each folder is a full project: open it, run `npm install` then `npm run dev`.
 | 2026-11-05 | [Input.jsx](first-react-app/src/assets/Input.jsx) | Learning React in first-react-app |
 | 2026-11-05 | [ListDemo.jsx](first-react-app/src/assets/ListDemo.jsx) | Learning React in first-react-app |
 | 2026-11-05 | [Counter.jsx](first-react-app/src/Counter.jsx) | Updated in first-react-app |
+| 2026-11-05 | [App.jsx](first-react-app/src/App.jsx) | Updated in first-react-app |
