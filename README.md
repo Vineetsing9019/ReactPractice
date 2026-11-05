@@ -18,3 +18,4 @@ Each folder is a full project: open it, run `npm install` then `npm run dev`.
 | 2026-11-03 | [Button.jsx](first-react-app/src/Button.jsx) | Learning React in first-react-app |
 | 2026-11-03 | [Counter.jsx](first-react-app/src/Counter.jsx) | Learning React in first-react-app |
 | 2026-11-03 | [App.jsx](first-react-app/src/App.jsx) | Updated in first-react-app |
+| 2026-11-05 | [shopkart](shopkart) | Started the shopkart project (Vite + React set-up) |
