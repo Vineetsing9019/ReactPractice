@@ -40,3 +40,4 @@ Each folder is a full project: open it, run `npm install` then `npm run dev`.
 | 2026-11-19 | [Details.jsx](shopkart/src/Details.jsx) | Learning React in shopkart |
 | 2026-11-19 | [Home.jsx](shopkart/src/Home.jsx) | Updated in shopkart |
 | 2026-11-19 | [Login.jsx](shopkart/src/Login.jsx) | Learning React in shopkart |
+| 2026-11-19 | [Product.jsx](shopkart/src/Product.jsx) | Learning React in shopkart |
