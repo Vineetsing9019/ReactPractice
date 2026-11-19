@@ -35,3 +35,4 @@ Each folder is a full project: open it, run `npm install` then `npm run dev`.
 | 2026-11-18 | [Home.jsx](shopkart/src/Home.jsx) | Updated in shopkart |
 | 2026-11-19 | [shopkart](shopkart) | Updated the shopkart project set-up |
 | 2026-11-19 | [AboutUs.jsx](shopkart/src/AboutUs.jsx) | Learning React in shopkart |
+| 2026-11-19 | [App.jsx](shopkart/src/App.jsx) | Updated in shopkart |
