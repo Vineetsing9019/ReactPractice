@@ -1,0 +1,7 @@
+Routing
+
+1. npm install react-rourt-dom
+2. define routes in main.jsx (route -- component) - routerArray, <RouterProvider>
+3. set the routes in nav 
+4. placeholder in Parent to load the children dynamically- <Outlet />
+5. handling SPA - replace anchor tag by NavLink or Link
