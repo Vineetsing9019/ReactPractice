@@ -1,64 +1,55 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
+import Product from './Product';
 
 export default function Home() {
 
-    const [allProducts, setAllProducts] = useState(null);
+    const [allProducts, setAllProducts] = useState([]);
 
-    // Load products (url changes when a category is clicked)
-    const loadProducts = (url) => {
-        fetch(url)
+    // fetch('https://dummyjson.com/products')
+    // .then(resp => resp.json())
+    // .then(data => setAllProducts(data.products))
+    // .catch(err => console.log(err));
+
+    // useEffect is used to avoid the side effect
+    // useEffect(()=>{    }, []);
+    // useEffect(function, dependency list-DL );
+    // DL - if anything from this DL is updated then the function will be executed again
+
+    // DL - lists all the dependencies
+    // we can define 'states and props' on which the useEffect is depenedent on this DL
+    // if there is any change in any DL - useEffect will execute the function
+
+    const [count,setCount] = useState(0);
+
+    useEffect(()=>{
+        console.log("calling fetch");        
+        fetch('https://dummyjson.com/products')
         .then(resp => resp.json())
-        .then(data => setAllProducts(data.products))
+        .then(data => {
+            console.log(data.products.slice(0,6)); // slicing from 0 to 6 --- 0 to 5           
+            setAllProducts(data.products.slice(0,6));
+        })
         .catch(err => console.log(err));
-    }
+    },[]);
 
-    // Runs once when the page opens → load All
-    useEffect(() => {
-        loadProducts('https://dummyjson.com/products');
-    }, []);
+    // DL - [] ==> useEffect is NOT dependent on any of the state/props
+    // DL - [count] ==> if count state is updated, iseEffect will execute the function again
+    // DL is not mentioned - by default all states and props are the DL , by default the DL is [allProducts, count]
 
-    return (
-        <div className="container-fluid">
-            <div className="row">
+    // Rule: DL should not mention the state, which is getting updated within the function
 
-                {/* LEFT: Category sidebar */}
-                <div className="col-md-2 p-3">
-                    <a href="#" className="d-block fs-5 mb-2" onClick={() => loadProducts('https://dummyjson.com/products')}>All</a>
-                    <a href="#" className="d-block fs-5 mb-2" onClick={() => loadProducts('https://dummyjson.com/products/category/smartphones')}>Electronics</a>
-                    <a href="#" className="d-block fs-5 mb-2" onClick={() => loadProducts('https://dummyjson.com/products/category/groceries')}>Fresh Veggies</a>
-                    <a href="#" className="d-block fs-5 mb-2" onClick={() => loadProducts('https://dummyjson.com/products/category/furniture')}>Furniture</a>
-                </div>
-
-                {/* RIGHT: Product cards */}
-                <div className="col-md-10 p-3">
-                    <h2>Product List</h2>
-
-                    <div className="row">
-                        {allProducts && allProducts.map((product) => (
-                            <div className="col-md-4 mb-4" key={product.id}>
-                                <div className="card h-100 p-2">
-                                    <img src={product.thumbnail} className="card-img-top" alt={product.title}
-                                         style={{ height: '200px', objectFit: 'contain' }} />
-
-                                    <div className="card-body">
-                                        <h5 className="card-title">{product.title}</h5>
-                                        <h6>Category: {product.category}</h6>
-                                        <p>
-                                            {product.description.substring(0, 40)} <a href="#">Read More</a>
-                                        </p>
-                                        <p>Price: <b>$ {product.price}</b></p>
-
-                                        <button className="btn btn-primary me-2">Details</button>
-                                        <button className="btn btn-danger me-2">Delete</button>
-                                        <button className="btn btn-warning">Update</button>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-            </div>
+  return (
+    <>
+        {/* <div>Home</div>
+        <button onClick={()=>setCount(count+1)}>
+            Current count { count }
+        </button> */}
+        <h2>Product List</h2>
+        <div className="row">
+        { allProducts && 
+            allProducts.map(prodObj => <Product key={prodObj.id}  obj={prodObj} name={prodObj.title} />)
+        }
         </div>
-    )
+    </>
+  )
 }
