@@ -1,0 +1,4 @@
+.card-hover:hover {
+    /* transform: scale(1.08); */
+    border: 3px solid blueviolet; 
+}
