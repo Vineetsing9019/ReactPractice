@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import {  useParams } from 'react-router-dom'
+import {  NavLink, useParams } from 'react-router-dom'
 
 export default function Details() {
    const params =  useParams(); // to capture the dynamic parameters
@@ -34,6 +34,7 @@ export default function Details() {
                         <p>Return Policy: {selectedProdObj.returnPolicy}</p>
                         <p><strong>Price: $ {selectedProdObj.price}</strong></p>
                         <a href="#" className="btn btn-primary">Add To Cart</a>
+                        <p><NavLink to={'/'} className="btn btn-primary mt-2">Back</NavLink></p>
                     </div>
                 </div>
             </div>
