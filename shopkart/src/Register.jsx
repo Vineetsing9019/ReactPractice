@@ -30,7 +30,20 @@ function doRegister(formData){
          <div className="mb-3">
           <label className="form-label">Username</label>
           <input type="text" className="form-control" 
-          {...register('username')} />
+          {...register('username',
+            {
+              "required":"username is required",
+              "minLength": {
+                value:"3",
+                message:"username must have atleast 3 characters"
+              }
+            }
+          )} />
+          { errors.username &&
+          <div className='alert alert-danger'>
+            { errors.username?.message}
+             </div>
+}
         </div>
         <div className="mb-3">
           <label className="form-label">Email address</label>
