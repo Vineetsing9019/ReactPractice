@@ -70,7 +70,14 @@ function App() {
           {/* its a placeholder that renders the child component */}
         </div>
       </div>
-      <div className="row">Footer</div>
+      <div className="row mt-2" style={myStyle}>
+            <div className='col-6 p-2'>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3768.171820750498!2d72.9739874!3d19.1876963!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b8d834c00235%3A0x89ff617b4a6cbf6f!2sItvedant%20-%20Thane!5e0!3m2!1sen!2sin!4v1795406975627!5m2!1sen!2sin" width="400" height="300" style={{border:"0"}} allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
+            <div className='col-6 p-2'>
+
+            </div>
+      </div>
     </div>
   )
 }
