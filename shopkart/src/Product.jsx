@@ -11,11 +11,11 @@ export default function Product(props) {
     <div className="col-4 mt-2">
       {/* Card  - {name} */}
       <div className="card card-hover" style={{ width: "100%" }}>
-        <img src={productObject.images[0]} className="card-img-top" alt="..." height="200px" />
+        <img src={productObject.imagePath} className="card-img-top" alt="..." height="200px" />
         <div className="card-body">
-          <h5 className="card-title">{productObject.title}</h5>
+          <h5 className="card-title">{productObject.name}</h5>
           <h6>Category: {productObject.category}</h6>
-          <p className="card-text">{productObject.description.slice(0,50)} <a href="">Read More</a> </p>
+          <p className="card-text">{productObject.description?.slice(0,50)} <a href="">Read More</a> </p>
           <p>Price: <strong>$ {productObject.price}</strong></p>
           <NavLink to={`/details/${productObject.id}`} className="btn btn-primary">Details</NavLink>
           <a href="#" className="btn btn-danger ms-2">Delete</a>
