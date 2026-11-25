@@ -23,7 +23,7 @@ export default function Home() {
 
     useEffect(()=>{
         console.log("calling fetch");        
-        fetch('http://localhost:8080/products')
+        fetch(`${import.meta.env.VITE_API_URL}/products`)
         .then(resp => resp.json())
         .then(data => {
             // console.log(data);
