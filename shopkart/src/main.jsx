@@ -11,6 +11,7 @@ import Register from './Register'
 import AboutUs from './AboutUs'
 import ContactUs from './ContactUs'
 import Details from './Details.jsx'
+import AddToCart from './AddToCart.jsx'
 
 const routerArray = createBrowserRouter([
   // route objects - array of routes
@@ -44,6 +45,11 @@ const routerArray = createBrowserRouter([
         // localhost:5173/details/3
         path: 'details/:pid',
         element: <Details />
+      },
+      {
+        // localhost:5173/addtocart
+        path: 'addtocart',
+        element: <AddToCart />
       }
     ]
   }  
