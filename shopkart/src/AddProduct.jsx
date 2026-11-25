@@ -16,6 +16,7 @@ export default function AddProduct() {
         <div className="mb-3">
           <label className="form-label">Name</label>
           <input type="text" className="form-control"
+          style={ errors.name ? {border:"2px solid red"} :{}}
           {...register('name', { required: "Name is required" })} />
           { errors.name &&
             <div className='alert alert-danger'>
@@ -26,6 +27,7 @@ export default function AddProduct() {
         <div className="mb-3">
           <label className="form-label">Category</label>
           <select className="form-select"
+          style={ errors.category ? {border:"2px solid red"} :{}}
           {...register('category', { required: "Category is required" })}>
             <option value="">Select category</option>
             <option value="Electronics">Electronics</option>
@@ -41,6 +43,7 @@ export default function AddProduct() {
         <div className="mb-3">
           <label className="form-label">Price</label>
           <input type="number" className="form-control"
+          style={ errors.price ? {border:"2px solid red"} :{}}
           {...register('price', {
             required: "Price is required",
             min: { value: 1, message: "Price must be at least 1" }
