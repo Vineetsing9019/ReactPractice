@@ -30,7 +30,9 @@ function App() {
           <NavLink className="nav-link" to={'/'}>Home</NavLink>
         </li>
         <li className="nav-item">
-          <NavLink className="nav-link" to={"/addproduct"}>Add Product</NavLink>
+          {/* <a className="nav-link" href="#">Contact Us</a> */}
+           <NavLink className="nav-link" to={"/add-product"}>
+           Add Product</NavLink>
         </li>
         <li className="nav-item">
           {/* <a className="nav-link" href="/register">Register</a>
