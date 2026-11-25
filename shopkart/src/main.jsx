@@ -47,9 +47,8 @@ const routerArray = createBrowserRouter([
         element: <Details />
       },
       {
-        // localhost:5173/addproduct
-        path: 'addproduct',
-        element: <AddProduct />
+        path: 'add-product',
+        element : <AddProduct />
       }
     ]
   }  
