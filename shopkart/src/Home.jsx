@@ -28,7 +28,6 @@ export default function Home() {
         .then(data => {
             // console.log(data);
             // console.log(data._embedded.products);
-            
             setAllProducts(data._embedded.products);
         })
         .catch(err => console.log(err));
