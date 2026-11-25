@@ -1,27 +1,39 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom';
 
 export default function Register() {
  const {  register, handleSubmit, formState: { errors }} = useForm();
- const [passwordError, setPasswordError ] = useState(null);
+ const navigate = useNavigate(); // for programatic navigation (without NavLink)
+ const [error, setError ] =useState(null);
 
 function doRegister(formData){
-  // console.log(formData);
-
+  // console.log(formData);  
+  setError(null);
   if(formData.password === formData.confirmPassword){
     // POST request to api
     fetch(`${import.meta.env.VITE_API_URL}/users/register`, {
-      headers: {"Content-Type":"application/json"},
-      method: "POST",
-      body: JSON.stringify(formData)
+       headers: {"Content-Type":"application/json"},
+       method: "POST",
+       body: JSON.stringify(formData)
     })
-    .then(resp => resp.json())
+    .then(resp => {
+      // console.log(resp);
+      if (resp.status === 201){
+        alert("Registered Successfully!!");
+        navigate("/login");
+      }
+      else{
+        return resp.json()
+      }
+    })
     .then(data => {
-      console.log(data);
+      // console.log(data);
+      setError(data.message);
     })
   }
   else {
-    setPasswordError("Password and confirm password must be same");
+    setError("Password and confirm password must be same");
   }
 
 }
@@ -31,9 +43,10 @@ function doRegister(formData){
     <div className="col-5 mx-auto border rounded shadow p-3 mt-3">
       <form onSubmit={handleSubmit(doRegister)}>
         <h3>Register</h3>
-         { passwordError &&
+        
+        { error &&
           <div className="alert alert-danger" role="alert">
-            {passwordError}
+            {error}
           </div>
          }
          <div className="mb-3">
