@@ -6,10 +6,19 @@ export default function Register() {
  const [passwordError, setPasswordError ] = useState(null);
 
 function doRegister(formData){
-  console.log(formData);
-  
+  // console.log(formData);
+
   if(formData.password === formData.confirmPassword){
     // POST request to api
+    fetch(`${import.meta.env.VITE_API_URL}/users/register`, {
+      headers: {"Content-Type":"application/json"},
+      method: "POST",
+      body: JSON.stringify(formData)
+    })
+    .then(resp => resp.json())
+    .then(data => {
+      console.log(data);
+    })
   }
   else {
     setPasswordError("Password and confirm password must be same");
