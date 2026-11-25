@@ -47,6 +47,9 @@ function App() {
            <NavLink className="nav-link" to={"/contactus"}>
            Contact Us</NavLink>
         </li>
+        <li className="nav-item">
+          <NavLink className="nav-link" to={"/addtocart"}>Add to Cart</NavLink>
+        </li>
        
         
       </ul>
