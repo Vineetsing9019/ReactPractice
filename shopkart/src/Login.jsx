@@ -10,7 +10,7 @@ export default function Login() {
     const loginDetails = {"email":email, "password":password};
     console.log(loginDetails);
     
-    fetch('http://localhost:8080/users/login', {
+    fetch(`${import.meta.env.VITE_API_URL}/users/login`, {
       headers:{"Content-Type":"application/json"},
       method: "POST",
       body: JSON.stringify(loginDetails)
@@ -18,15 +18,8 @@ export default function Login() {
     .then(resp => resp.json())
     .then(data => {
       // login response frpom api
-      console.log("server data:",data); 
-      if(data.jwtToken){
-        const token = data.jwtToken;
-        localStorage.setItem("jwtToken",token);
-        // user deatils - id, email, roles
-        const decodedToken = jwtDecode(token);
-        console.log(decodedToken);    
-        window.location.href="/";      
-      }
+      console.log("server data:",data); // if login is successful, jwtToken is received
+      
     })
 
   }
