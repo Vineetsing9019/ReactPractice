@@ -27,7 +27,7 @@ return (
          <div className="mb-3">
            <label className="form-label">Description</label>
            <textarea className="form-control" 
-              {...register('description')} />        
+              {...register('decsription')} />        
          </div>
          <div className="mb-3">
            <label className="form-label">Product Price</label>
