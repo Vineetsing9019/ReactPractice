@@ -31,6 +31,7 @@ export default function Login() {
         localStorage.setItem("userId", userId);
         localStorage.setItem("roles", decodedToken.roles);
         localStorage.setItem("username", decodedToken.username);
+        window.location.href = "/";
       }
       else {
         // login failed
