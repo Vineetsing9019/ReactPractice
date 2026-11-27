@@ -22,11 +22,15 @@ export default function Login() {
       // login response frpom api
       console.log("server data:",data); // if login is successful, jwtToken is received
       if(data.jwtToken){
-        //login sucessful
-        const token = data.jwtToken;
-        localStorage.setItem("token", token);
-        const decodedToken = jwtDecode(token);
-        console.log("decoded token:", decodedToken);
+        // login successful
+        alert("login successful");
+        localStorage.setItem("token", data.jwtToken);
+        const decodedToken = jwtDecode(data.jwtToken);
+        console.log(decodedToken);
+        const userId = +decodedToken.sub;
+        localStorage.setItem("userId", userId);
+        localStorage.setItem("roles", decodedToken.roles);
+        localStorage.setItem("username", decodedToken.username);
       }
       else {
         // login failed
