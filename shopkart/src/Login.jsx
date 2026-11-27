@@ -1,5 +1,5 @@
 import { jwtDecode } from 'jwt-decode';
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
 export default function Login() {
   const [email,setEmail] = useState('');
@@ -19,8 +19,16 @@ export default function Login() {
     .then(data => {
       // login response frpom api
       console.log("server data:",data); // if login is successful, jwtToken is received
-      
+      if(data.jwtToken){
+        //login sucessful
+        localStorage.setItem("token", jwtToken);
+        const decodedToken = jwtDeocde
+      }
     })
+    .catch(err => {
+      setLoginError("please provide valid email and password");
+
+    });
 
   }
 
@@ -28,6 +36,12 @@ export default function Login() {
     <div className="col-4 mx-auto border rounded shadow p-3 mt-3">
       <form>
         <h3>Login</h3>
+        {
+          loginError &&
+          <div className='alert alert-danger' role="alert">
+            {loginError}
+          </div>
+        }
         <div className="mb-3">
           <label className="form-label">Email address</label>
           <input type="email" className="form-control" 
