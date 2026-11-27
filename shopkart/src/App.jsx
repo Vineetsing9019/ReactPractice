@@ -10,6 +10,17 @@ function App() {
   const myStyle = {
       backgroundColor: "#5a0364"
   }
+  const token = localStorage.getItem("token");
+  const userId = localStorage.getItem("userId");
+  const username = localStorage.getItem("username");
+  const roles = localStorage.getItem("roles");
+// by default all of these will be null
+
+  function doLogout(){
+    localStorage.clear();
+    alert("Logged out successfully!!");
+    window.location.href = "/";
+  }
 
   return (
     <div className="container-fluid">
@@ -53,7 +64,7 @@ function App() {
            Contact Us</NavLink>
         </li>
         <li className="nav-item">
-          <NavLink className="nav-link" to={'/logout'}>Logout</NavLink>
+          <a className="nav-link" href="#" onClick={doLogout}>Logout</a>
         </li>
 
         

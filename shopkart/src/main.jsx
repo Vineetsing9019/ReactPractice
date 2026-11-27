@@ -12,7 +12,6 @@ import AboutUs from './AboutUs'
 import ContactUs from './ContactUs'
 import Details from './Details.jsx'
 import AddProduct from './AddProduct.jsx'
-import Logout from './Logout.jsx'
 
 const routerArray = createBrowserRouter([
   // route objects - array of routes
@@ -50,10 +49,6 @@ const routerArray = createBrowserRouter([
       {
         path: 'add-product',
         element : <AddProduct />
-      },
-      {
-        path: 'logout',
-        element : <Logout />
       }
     ]
   }  
