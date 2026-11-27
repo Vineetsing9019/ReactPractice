@@ -11,6 +11,13 @@ function App() {
       backgroundColor: "#5a0364"
   }
 
+  function doLogout(){
+    // remove token and user details saved at login
+    localStorage.clear();
+    alert("logout successful");
+    window.location.href = "/login";
+  }
+
   return (
     <div className="container-fluid">
       <div className="row">
@@ -52,7 +59,10 @@ function App() {
            <NavLink className="nav-link" to={"/contactus"}>
            Contact Us</NavLink>
         </li>
-       
+        <li className="nav-item">
+          <a className="nav-link" href="#" onClick={doLogout}>Logout</a>
+        </li>
+
         
       </ul>
       <form className="d-flex" role="search">
