@@ -4,9 +4,11 @@ import React, { useState } from 'react';
 export default function Login() {
   const [email,setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loginError, setLoginError] = useState(null);
 
   function doLogin(){
     event.preventDefault();
+    setLoginError(null);
     const loginDetails = {"email":email, "password":password};
     console.log(loginDetails);
     
@@ -21,8 +23,14 @@ export default function Login() {
       console.log("server data:",data); // if login is successful, jwtToken is received
       if(data.jwtToken){
         //login sucessful
-        localStorage.setItem("token", jwtToken);
-        const decodedToken = jwtDeocde
+        const token = data.jwtToken;
+        localStorage.setItem("token", token);
+        const decodedToken = jwtDecode(token);
+        console.log("decoded token:", decodedToken);
+      }
+      else {
+        // login failed
+        setLoginError("please provide valid email and password");
       }
     })
     .catch(err => {
