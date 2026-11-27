@@ -45,15 +45,19 @@ function App() {
            <NavLink className="nav-link" to={"/add-product"}>
            Add Product</NavLink>
         </li>
-        <li className="nav-item">
-          {/* <a className="nav-link" href="/register">Register</a>
-           */}
-           <NavLink className="nav-link" to={'/register'}>Register</NavLink>
-        </li>
-        <li className="nav-item">
-          {/* <a className="nav-link" href="/login">Login</a> */}
-          <NavLink className="nav-link" to={'/login'}>Login</NavLink>
-        </li>
+        { (!token) &&
+          <>
+            <li className="nav-item">
+              {/* <a className="nav-link" href="/register">Register</a>
+              */}
+              <NavLink className="nav-link" to={'/register'}>Register</NavLink>
+            </li>
+            <li className="nav-item">
+              {/* <a className="nav-link" href="/login">Login</a> */}
+              <NavLink className="nav-link" to={'/login'}>Login</NavLink>
+            </li>
+          </>
+        }
         <li className="nav-item">
           {/* <a className="nav-link" href="#">About Us</a> */}
           <NavLink className="nav-link" to={"/aboutus"}>About Us</NavLink>
